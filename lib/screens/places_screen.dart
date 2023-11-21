@@ -1,32 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:places/models/place_model.dart';
+import 'package:places/providers/user_places.dart';
 import 'package:places/screens/add_places_screen.dart';
+import 'package:places/screens/place_details_screen.dart';
+
 import 'package:places/widgets/places_list.dart';
 
-class PlacesScreen extends StatefulWidget {
+class PlacesScreen extends ConsumerWidget {
   const PlacesScreen({super.key});
 
-  @override
-  State<PlacesScreen> createState() {
-    return _AddPlacesScreenState();
-  }
-}
-
-class _AddPlacesScreenState extends State<PlacesScreen> {
-
-  void _addItemScreen() {
-    Navigator.push(context, 
-      MaterialPageRoute(builder: (ctx) => const AddPlaceScreen())
+  void _selectPlace(BuildContext context, Place place) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => PlaceDetailsScreen(place: place)),
     );
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final userPlaces = ref.watch(userFavoritePlacesProvider);
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Your Places'), 
-      actions: [
-        IconButton(onPressed: _addItemScreen, icon: const Icon(Icons.add))
-      ]),
-      body: const PlacesList(places: [])
-      );
+      appBar: AppBar(
+        title: const Text('Your Places'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (ctx) => const AddPlaceScreen()));
+            },
+              )
+        ],
+      ),
+      body: PlacesList(
+        places: userPlaces,
+      ),
+    );
   }
 }
