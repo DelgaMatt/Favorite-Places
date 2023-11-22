@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -16,6 +18,7 @@ class AddPlaceScreen extends ConsumerStatefulWidget {
 }
 
 class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
+  File? _selectedImage;
   final _titleController = TextEditingController();
   // if we are using controllers, you set up a dispose method for the controllers so that we can delele items
 
@@ -23,11 +26,11 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
   void _savePlace() {
     final enteredTitle = _titleController.text;
 
-    if (enteredTitle.isEmpty) {
+    if (enteredTitle.isEmpty || _selectedImage == null) {
       return;
     }
 
-    ref.read(userFavoritePlacesProvider.notifier).addPlace(enteredTitle);
+    ref.read(userFavoritePlacesProvider.notifier).addPlace(enteredTitle, _selectedImage!);
     Navigator.of(context).pop();
   }
 
@@ -55,7 +58,11 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
                   TextStyle(color: Theme.of(context).colorScheme.onBackground),
             ),
             const SizedBox(height: 10),
-            const ImageInput(),
+            ImageInput(
+              onPickImage: (image) {
+                _selectedImage = image;
+              },
+            ),
             const SizedBox(height: 16),
             ElevatedButton.icon(
                 onPressed: _savePlace,
@@ -67,3 +74,6 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
     );
   }
 }
+
+//test: how is this parent widget consuming data from its child image input so when a picture is taken,
+// we can use the selected image?
