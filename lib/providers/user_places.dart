@@ -7,8 +7,8 @@ class UserPlacesNotifier extends StateNotifier<List<Place>> {
   UserPlacesNotifier() : super(const []);
 
   // this is how we're updating the state with riverpod
-  void addPlace(String title, File image) {
-    final newPlace = Place(title: title, image: image);
+  void addPlace(String title, File image, PlaceLocation location) {
+    final newPlace = Place(title: title, image: image, location: location);
     // provided by StateNotifier
     state = [newPlace, ...state];
   }
