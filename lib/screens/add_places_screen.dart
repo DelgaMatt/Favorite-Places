@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:places/providers/user_places.dart';
 import 'package:places/widgets/image_input.dart';
+import 'package:places/widgets/location_input.dart';
 
 // ConsumerState and Notifiers are properties given to us by Riverpod
 // The ref object is made availabel to user through the consumer state
@@ -63,6 +64,8 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
                 _selectedImage = image;
               },
             ),
+            const SizedBox(height: 10,),
+            const LocationInput(),
             const SizedBox(height: 16),
             ElevatedButton.icon(
                 onPressed: _savePlace,
