@@ -10,7 +10,12 @@ class PlacesScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final userPlaces = ref.watch(userFavoritePlacesProvider);
+    // final userPlaces = ref.watch(userFavoritePlacesProvider);
+
+    // seeded Data --- Uncomment above ------------------------->
+    final userPlaces = ref.watch(placesProvider);
+    // ---------------------------------------->
+
 
     return Scaffold(
       appBar: AppBar(
@@ -20,8 +25,7 @@ class PlacesScreen extends ConsumerWidget {
             icon: const Icon(Icons.add),
             onPressed: () {
               Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (ctx) => const AddPlaceScreen()));
+                  MaterialPageRoute(builder: (ctx) => const AddPlaceScreen()));
             },
           )
         ],
