@@ -41,7 +41,7 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
 
   @override
   void dispose() {
-    _titleController;
+    _titleController.dispose();
     super.dispose();
   }
 
