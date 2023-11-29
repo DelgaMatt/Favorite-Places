@@ -4,7 +4,7 @@
   ![Riverpod](https://img.shields.io/badge/Riverpod-0.14.0-blue.svg)
   ![License Badge](https://img.shields.io/badge/Material--UI-0081CB?style=flat&logo=material-ui&logoColor=white)
   <br>
-    ![License Badge](https://img.shields.io/badge/SQLite-07405E?style=flat&logo=sqlite&logoColor=white)
+  ![License Badge](https://img.shields.io/badge/SQLite-07405E?style=flat&logo=sqlite&logoColor=white)
   ![License Badge](https://img.shields.io/badge/Google-Maps-0081CB?style=flat&logo=Google-Maps&logoColor=white)
   <br>
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
