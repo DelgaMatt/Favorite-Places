@@ -42,10 +42,8 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
   @override
   void dispose() {
     _titleController.dispose();
-    super.dispose();
+    super.dispose(); 
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +51,7 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
       appBar: AppBar(
         title: const Text('Add your New Favorite Place!'),
       ),
-      body: SingleChildScrollView(
+      body: SingleChildScrollView(  
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
