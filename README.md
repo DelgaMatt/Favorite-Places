@@ -20,6 +20,9 @@
 
   ## Usage
   To use this application after installation, simply click the plus icon in the app bar and create a new place by filling out the requested input fields. A favorite place can be deleted on the home 'Your Places' page by swiping the list item to the left. Favorite places can be viewed more thoroughly by tapping the list item you'd like to see.
+
+  <video src="https://github.com/DelgaMatt/Favorite-Places/assets/115049801/7d14fd67-d21c-4ec6-adc0-f07cdc723a63" width="300" height="650">
+
   ## License
   This app is covered under the [MIT License](https://opensource.org/licenses/MIT)<br>
   Copyright (C) Matthew Delgado 2023

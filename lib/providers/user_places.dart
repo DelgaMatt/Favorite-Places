@@ -8,18 +8,18 @@ import 'package:sqflite/sqlite_api.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // notifier's a property of riverpod, this is our initial state and watchers
-  Future<Database> _getDatabase() async {
-    final dbPath = await sql.getDatabasesPath();
-    final db = await sql.openDatabase(
-      path.join(dbPath, 'places.db'),
-      onCreate: (db, version) async {
-        return db.execute(
-            'CREATE TABLE user_places(id TEXT PRIMARY KEY, title TEXT, image TEXT, lat REAL, lng REAL, address TEXT)');
-      },
-      version: 1,
-    );
-    return db;
-  }
+Future<Database> _getDatabase() async {
+  final dbPath = await sql.getDatabasesPath();
+  final db = await sql.openDatabase(
+    path.join(dbPath, 'places.db'),
+    onCreate: (db, version) async {
+      return db.execute(
+          'CREATE TABLE user_places(id TEXT PRIMARY KEY, title TEXT, image TEXT, lat REAL, lng REAL, address TEXT)');
+    },
+    version: 1,
+  );
+  return db;
+}
 
 class UserPlacesNotifier extends StateNotifier<List<Place>> {
   UserPlacesNotifier() : super(const []);
@@ -39,8 +39,7 @@ class UserPlacesNotifier extends StateNotifier<List<Place>> {
                 longitude: row['lng'] as double,
                 address: row['address'] as String),
           ),
-        )
-        .toList();
+        ).toList();
 
     state = places;
   }
