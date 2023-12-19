@@ -26,11 +26,7 @@ class _PlacesScreenState extends ConsumerState<PlacesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final userPlaces = ref.watch(userFavoritePlacesProvider);
-
-    // seeded Data --- Uncomment above ------------------------->
-    final userPlaces = ref.watch(placesProvider);
-    // ---------------------------------------->
+    final userPlaces = ref.watch(userFavoritePlacesProvider);
 
     return Scaffold(
       appBar: AppBar(

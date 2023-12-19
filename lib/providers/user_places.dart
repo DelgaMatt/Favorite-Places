@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:places/data/place_psuedodata.dart';
 import 'package:places/models/place_model.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart' as syspaths;
@@ -72,12 +71,6 @@ class UserPlacesNotifier extends StateNotifier<List<Place>> {
     state = [newPlace, ...state];
   }
 }
-
-// seededDAta--------------------------->
-final placesProvider = Provider((ref) {
-  return pseudoPlaces;
-});
-// ------------------------------------->
 
 final userFavoritePlacesProvider =
     StateNotifierProvider<UserPlacesNotifier, List<Place>>(
