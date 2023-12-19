@@ -22,17 +22,13 @@ class PlaceDetailsScreen extends StatelessWidget {
         ),
         body: Stack(
           //allows us to stack or overlay widgets
-          children: [
-            Image.network('https://www.hertz.com/content/dam/hertz/global/blog-articles/places-to-go/6-beautiful-spots-to-see-in-portland-oregon/View-of-Portland-Oregon-fall.rendition.xlarge.jpg',
-            fit: BoxFit.cover,
-            height: double.infinity,
-            width: double.infinity,),            
-            // Image.file(
-            //   place.image,
-            //   fit: BoxFit.cover,
-            //   width: double.infinity,
-            //   height: double.infinity,
-            // ),
+          children: [          
+            Image.file(
+              place.image,
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
+            ),
             Positioned(
                 bottom: 0,
                 left: 0,
